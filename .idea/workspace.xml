@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="132513a2-119d-48f8-8598-91ad35e4b45b" name="Changes" comment="reset" />
+    <list default="true" id="132513a2-119d-48f8-8598-91ad35e4b45b" name="Changes" comment="feat network task system">
+      <change afterPath="$PROJECT_DIR$/ext/cipher/cipher.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ext/milenage/milenage.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/nas/task.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/sctp/handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/sctp/task.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ue/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ue/task.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/nts/handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/nts/message.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/nts/task.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/nts.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/sctp/sctp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/app/app.go" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,38 +29,63 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="Go Application" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../go" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitLabMergeRequestsSettings">{}</component>
   <component name="GithubPullRequestsUISettings">{}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/go/pkg/mod/github.com/free5gc/sctp@v1.0.1/sctp.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/go/pkg/mod/github.com/free5gc/sctp@v1.0.1/sctp_linux.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/go/pkg/mod/github.com/free5gc/sctp@v1.0.1/sctp_notification.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../../go/src/time/time.go" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2joLzu1VOLpDNElfkDHvzGf00Qz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultGoTemplateProperty": "Go Application",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultGoTemplateProperty": "Go File",
     "Go Build.go build _5gAKA_UE.executor": "Run",
+    "Go Build.go build app.go.executor": "Run",
+    "Go Build.go build mockserver.go.executor": "Run",
+    "Go Build.go build nts.go.executor": "Run",
+    "Go Build.go build sctp.go.executor": "Run",
     "Go Build.go build sctpserver.go.executor": "Run",
+    "Go Build.go build server.go (1).executor": "Run",
+    "Go Build.go build sync.go.executor": "Run",
+    "Go Build.go build ue.go.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "last_opened_file_path": "/home/dopaminenone",
@@ -66,22 +107,25 @@
       <window_info id="Pull Requests" show_stripe_button="false" />
       <window_info id="Learn" show_stripe_button="false" />
       <window_info id="DFA" show_stripe_button="false" />
-      <window_info active="true" id="Commit" order="0" sideWeight="0.50087106" visible="true" weight="0.3300866" />
-      <window_info id="Structure" order="1" sideWeight="0.49912894" side_tool="true" weight="0.3300866" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49912894" side_tool="true" weight="0.3300866" />
+      <window_info active="true" id="Commit" order="0" visible="true" weight="0.26801407" />
+      <window_info id="Structure" order="1" sideWeight="0.49912894" side_tool="true" weight="0.26801407" />
+      <window_info content_ui="combo" id="Project" order="2" side_tool="true" weight="0.26801407" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" show_stripe_button="false" />
       <window_info anchor="bottom" id="File Transfer" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.3155054" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info anchor="bottom" id="Problems View" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.3304214" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.3304214" />
-      <window_info anchor="bottom" id="Services" order="4" />
+      <window_info active="true" anchor="bottom" id="Problems View" order="2" visible="true" weight="0.3302257" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.3302257" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.3304214" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.3302257" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.3155054" />
+      <window_info anchor="bottom" id="Services" order="7" weight="0.3155054" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.3302257" />
       <window_info anchor="right" id="Endpoints" show_stripe_button="false" />
       <window_info anchor="right" id="make" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="right" id="documentation.v2" show_stripe_button="false" side_tool="true" />
       <window_info anchor="right" id="Coverage" show_stripe_button="false" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
       <window_info anchor="right" id="AIAssistant" order="1" weight="0.25" />
@@ -90,29 +134,65 @@
       <window_info anchor="right" id="Maven" order="4" weight="0.25" />
     </layout>
   </component>
-  <component name="RunManager" selected="Go Build.go build _5gAKA_UE">
-    <configuration name="go build _5gAKA_UE" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="5gAKA-UE" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="_5gAKA_UE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build sctpserver.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal/ue" />
+      <recent name="$PROJECT_DIR$/tests/sctp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build sctp.go">
+    <configuration name="go build mockserver.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="5gAKA-UE" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <package value="_5gAKA_UE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/cmd/mock/sctpserver.go" />
+      <filePath value="$PROJECT_DIR$/cmd/mockserver/mockserver.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build nts.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="5gAKA-UE" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="_5gAKA_UE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/tests/nts.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build sctp.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="5gAKA-UE" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="_5gAKA_UE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/tests/sctp/sctp.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build server.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="5gAKA-UE" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="_5gAKA_UE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/tests/server.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build ue.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="5gAKA-UE" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="_5gAKA_UE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/ue/ue.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build sctpserver.go" />
-        <item itemvalue="Go Build.go build _5gAKA_UE" />
+        <item itemvalue="Go Build.go build sctp.go" />
+        <item itemvalue="Go Build.go build nts.go" />
+        <item itemvalue="Go Build.go build server.go (1)" />
+        <item itemvalue="Go Build.go build ue.go" />
+        <item itemvalue="Go Build.go build mockserver.go" />
       </list>
     </recent_temporary>
   </component>
@@ -129,19 +209,66 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="834c881f-f41a-4201-abe4-f628a5f3d95d" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="834c881f-f41a-4201-abe4-f628a5f3d95d">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init project" />
-    <option name="LAST_COMMIT_MESSAGE" value="init project" />
+    <MESSAGE value="feat app controller" />
+    <MESSAGE value="feat free5gc-ue config" />
+    <MESSAGE value="add zap &amp; lumberjack logger" />
+    <MESSAGE value="feat customized logger" />
+    <MESSAGE value="add gitignore" />
+    <MESSAGE value="feat sctp operation" />
+    <MESSAGE value="feat network task system" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat network task system" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
