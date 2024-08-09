@@ -3,54 +3,62 @@ package baseapp
 import (
 	"os"
 	"os/signal"
-	"sync"
 	"syscall"
 )
 
-type Cleaner interface {
-	Stop()
+var app *BaseApp
+
+func GetApp() *BaseApp {
+	return app
 }
 
-type Controller struct {
-	signalListener chan os.Signal
-	cleaners       []Cleaner
-	wg             *sync.WaitGroup
+type destructFunc func() error
+
+type BaseApp struct {
+	exit             chan os.Signal
+	destructFuncList []destructFunc
 }
 
-// InitApp handle the life cycle of the entire baseapp
-func InitApp() (app *Controller) {
-	listener := make(chan os.Signal, 1)
-	signal.Notify(listener, syscall.SIGINT, syscall.SIGTERM)
-	app = &Controller{
-		signalListener: listener,
-		wg:             &sync.WaitGroup{},
+func newApp() *BaseApp {
+	return &BaseApp{
+		exit:             make(chan os.Signal, 1),
+		destructFuncList: []destructFunc{},
 	}
-	app.wg.Add(1)
+}
+
+func (app *BaseApp) onInitialize() {
+	signal.Notify(app.exit, syscall.SIGINT, syscall.SIGTERM)
 	go func() {
-		<-listener
-		app.Exit()
+		<-app.exit
+		app.destruct()
 	}()
-	return
 }
 
-func (app *Controller) AppendCleaners(cleaners ...Cleaner) {
-	for _, cleaner := range cleaners {
-		app.cleaners = append(app.cleaners, cleaner)
+func (app *BaseApp) onDestruct() error {
+	for _, f := range app.destructFuncList {
+		if err := f(); err != nil {
+			return err
+		}
 	}
+	return nil
 }
 
-func (app *Controller) runAtExit() {
-	defer app.wg.Done()
-	for _, cleaner := range app.cleaners {
-		cleaner.Stop()
+func (app *BaseApp) destruct() {
+	if err := app.onDestruct(); err != nil {
+		os.Exit(1)
 	}
-}
-
-func (app *Controller) Exit() {
-	app.runAtExit()
 	os.Exit(0)
 }
 
-func (app *Controller) Loop() {
-	app.wg.Wait()
+func (app *BaseApp) Exit() {
+	close(app.exit)
+}
+
+func (app *BaseApp) Defer(destructors ...destructFunc) {
+	app.destructFuncList = append(app.destructFuncList, destructors...)
+}
+
+func init() {
+	app = newApp()
+	app.onInitialize()
 }
