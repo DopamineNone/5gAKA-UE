@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="132513a2-119d-48f8-8598-91ad35e4b45b" name="Changes" comment="refractor">
+    <list default="true" id="132513a2-119d-48f8-8598-91ad35e4b45b" name="Changes" comment="refractor logger">
+      <change afterPath="$PROJECT_DIR$/cmd/ue.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/cmd/root.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logger/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/builder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +270,8 @@
     <MESSAGE value="feat extends cipher for 5GAKA" />
     <MESSAGE value="refractor baseapp" />
     <MESSAGE value="refractor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refractor" />
+    <MESSAGE value="refractor logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="refractor logger" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
