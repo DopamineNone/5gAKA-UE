@@ -3,7 +3,7 @@ package nts
 const (
 	TimeExpired int = iota
 
-	ConnectionSetUp
+	ConnectionSetup
 	ConnectionShutdown
 	ReceiveMessage
 	SendMessage

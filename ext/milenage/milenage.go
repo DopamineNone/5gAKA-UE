@@ -50,7 +50,7 @@ func AESEncrypt(key, plain string) string {
 	block, _ := aes.NewCipher(newKey)
 	iv := []byte("1234567812345678")
 	//block, _ := aes.NewCipher(newKey)
-	//cfb := cipher.NewCFBEncrypter(block, iv)
+	//cfb := auth.NewCFBEncrypter(block, iv)
 	//cfb.XORKeyStream(newPlain, newPlain)
 	//return string(newPlain)
 	ciphertext := make([]byte, aes.BlockSize+len(newPlain))

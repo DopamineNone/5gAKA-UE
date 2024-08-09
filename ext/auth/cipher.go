@@ -1,4 +1,4 @@
-package cipher
+package auth
 
 import (
 	"crypto/hmac"
@@ -25,12 +25,8 @@ func ResolveAUTN(AUTN string) (string, string, string) {
 	return sqnAK, amf, mac
 }
 
-func CheckMac(xMacA, MacA string) int {
-	if xMacA == MacA {
-		return 1
-	} else {
-		return 0
-	}
+func CheckMac(xMacA, MacA string) bool {
+	return xMacA == MacA
 }
 
 func GenerateResStar(ck, ik, P0, L0, rand, res string) string {
@@ -44,13 +40,4 @@ func GenerateResStar(ck, ik, P0, L0, rand, res string) string {
 	h.Write(s)
 	resStar := hex.EncodeToString(h.Sum(nil))[32:]
 	return resStar
-}
-
-func InitForUE() (string, string, string, string) {
-	ki := "000000012449900000000010123456d8"
-	op := "cda0c2852846d8eb63a387051cdd1fa5"
-	//global sn_name
-	snName := "123456789"
-	sqnMax := "100000000000000000000000"
-	return ki, op, snName, sqnMax
 }

@@ -2,13 +2,7 @@ package sctp
 
 import (
 	"github.com/free5gc/sctp"
-	"syscall"
 )
-
-// ConnectionHandler must add `defer conn.Close()`
-type ConnectionHandler interface {
-	Handle(conn *Conn)
-}
 
 type Conn struct {
 	conn *sctp.SCTPConn
@@ -35,15 +29,7 @@ func (c *Conn) Receive(buf []byte) (n int, info *sctp.SndRcvInfo, notification s
 	return
 }
 
-func (c *Conn) SetReadTimeout(milliseconds int) error {
-	return c.conn.SetReadTimeout(syscall.Timeval{Sec: int64(milliseconds / 1000), Usec: int64((milliseconds % 1000) * 1000)})
-}
-
-func (c *Conn) SetWriteTimeout(milliseconds int) error {
-	return c.conn.SetWriteTimeout(syscall.Timeval{Sec: int64(milliseconds / 1000), Usec: int64((milliseconds % 1000) * 1000)})
-}
-
-func (c *Conn) Stop() {
+func (c *Conn) Destruct() {
 	if c.conn != nil {
 		_ = c.conn.Close()
 	}

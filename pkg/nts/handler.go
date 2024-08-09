@@ -3,17 +3,11 @@ package nts
 import "sync"
 
 type TaskController interface {
-	// Init intialize the handler
-	Init()
-
-	// Push message to current Task
-	Push(msg Message)
-
 	// Start start sub-tasks
 	Start()
 
 	// Loop handle received message
-	Loop()
+	Loop(msg Message)
 
 	// Quit free the task and quit
 	Quit()
@@ -23,6 +17,9 @@ type TaskController interface {
 
 	// Done get isQuiting status
 	Done() chan bool
+
+	// Take get received message
+	Take() chan Message
 }
 
 // TaskHandler handle any NtsTask
@@ -35,15 +32,18 @@ func NewTaskHandler(handler TaskController) *TaskHandler {
 }
 
 func (h *TaskHandler) Run(wg *sync.WaitGroup) {
-	defer wg.Done()
 	h.Start()
-	for {
-		select {
-		case <-h.Done():
-			h.Quit()
-			return
-		default:
-			h.Loop()
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for {
+			select {
+			case <-h.Done():
+				h.Quit()
+				return
+			case msg := <-h.Take():
+				h.Loop(msg)
+			}
 		}
-	}
+	}()
 }

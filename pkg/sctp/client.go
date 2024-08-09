@@ -11,10 +11,17 @@ type Client struct {
 	*Conn
 }
 
-func NewClient(ips []string, port, lPort int, ppid uint32) (*Client, error) {
+type Config struct {
+	IPs   []string
+	Port  int
+	LPort int
+	PPID  uint32
+}
+
+func NewClient(cfg Config) (*Client, error) {
 	// initialize sctp addr
-	addr := make([]net.IPAddr, len(ips))
-	for i, ip := range ips {
+	addr := make([]net.IPAddr, len(cfg.IPs))
+	for i, ip := range cfg.IPs {
 		if ipAddr, err := net.ResolveIPAddr("ip", ip); err == nil {
 			addr[i] = *ipAddr
 		} else {
@@ -22,14 +29,14 @@ func NewClient(ips []string, port, lPort int, ppid uint32) (*Client, error) {
 		}
 	}
 
-	conn := &Conn{ppid: ppid, conn: nil}
+	conn := &Conn{ppid: cfg.PPID, conn: nil}
 	return &Client{
 		remoteAddr: &sctp.SCTPAddr{
 			IPAddrs: addr,
-			Port:    port,
+			Port:    cfg.Port,
 		},
 		localAddr: &sctp.SCTPAddr{
-			Port: lPort,
+			Port: cfg.LPort,
 		},
 		Conn: conn,
 	}, nil

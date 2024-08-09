@@ -26,9 +26,12 @@ imei: '356938035643803'
 # IMEISV number of the device. It is used if no SUPI and IMEI is provided
 imeiSv: '4370816125816151'
 
-# List of gNB IP addresses for Radio Link Simulation
-gnbSearchList:
-  - 127.0.0.1
+# AMF address information
+amfConfig:
+  address: 127.0.0.1
+  port: 38412
+
+localPort: 8888
 
 # UAC Access Identities Configuration
 uacAic:

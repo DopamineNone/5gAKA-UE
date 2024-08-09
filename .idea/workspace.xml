@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="132513a2-119d-48f8-8598-91ad35e4b45b" name="Changes" comment="feat network task system">
-      <change afterPath="$PROJECT_DIR$/ext/cipher/cipher.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ext/milenage/milenage.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/nas/task.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/sctp/handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/sctp/task.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ue/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ue/task.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/nts/handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/nts/message.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/nts/task.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/nts.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/sctp/sctp.go" afterDir="false" />
+    <list default="true" id="132513a2-119d-48f8-8598-91ad35e4b45b" name="Changes" comment="refractor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/app/app.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/free5gc-ue.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/ue.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ext/cipher/cipher.go" beforeDir="false" afterPath="$PROJECT_DIR$/ext/auth/cipher.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ext/milenage/milenage.go" beforeDir="false" afterPath="$PROJECT_DIR$/ext/milenage/milenage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/logger/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/nts/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/nts/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/nts/message.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/nts/message.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/nts/task.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/nts/task.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/sctp/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/sctp/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/sctp/conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/sctp/conn.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +76,8 @@
     "Go Build.go build server.go (1).executor": "Run",
     "Go Build.go build sync.go.executor": "Run",
     "Go Build.go build ue.go.executor": "Run",
+    "Go Test.TestBaseapp_Defer in _5gAKA_UE/pkg/baseapp.executor": "Run",
+    "Go Test.baseapp_test.go.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -108,18 +107,19 @@
       <window_info id="Learn" show_stripe_button="false" />
       <window_info id="DFA" show_stripe_button="false" />
       <window_info active="true" id="Commit" order="0" visible="true" weight="0.26801407" />
-      <window_info id="Structure" order="1" sideWeight="0.49912894" side_tool="true" weight="0.26801407" />
-      <window_info content_ui="combo" id="Project" order="2" side_tool="true" weight="0.26801407" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.26801407" />
+      <window_info id=" Fitten Code Chat" order="2" weight="0.26801407" />
+      <window_info content_ui="combo" id="Project" order="3" side_tool="true" weight="0.26801407" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" show_stripe_button="false" />
       <window_info anchor="bottom" id="File Transfer" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="0" weight="0.3155054" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.3302257" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info active="true" anchor="bottom" id="Problems View" order="2" visible="true" weight="0.3302257" />
+      <window_info anchor="bottom" id="Problems View" order="2" weight="0.3302257" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.3302257" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.3304214" />
-      <window_info anchor="bottom" id="Run" order="5" weight="0.3302257" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.3302257" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.3302257" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.3155054" />
       <window_info anchor="bottom" id="Services" order="7" weight="0.3155054" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3302257" />
@@ -136,36 +136,19 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal/config" />
       <recent name="$PROJECT_DIR$/internal/ue" />
       <recent name="$PROJECT_DIR$/tests/sctp" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build sctp.go">
-    <configuration name="go build mockserver.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.baseapp_test.go">
+    <configuration name="go build _5gAKA_UE" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="5gAKA-UE" />
       <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
+      <kind value="PACKAGE" />
       <package value="_5gAKA_UE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/cmd/mockserver/mockserver.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build nts.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="5gAKA-UE" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <package value="_5gAKA_UE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/tests/nts.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build sctp.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="5gAKA-UE" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <package value="_5gAKA_UE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/tests/sctp/sctp.go" />
+      <filePath value="$PROJECT_DIR$/pkg/baseapp/baseapp_test.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build server.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -186,13 +169,35 @@
       <filePath value="$PROJECT_DIR$/cmd/ue/ue.go" />
       <method v="2" />
     </configuration>
+    <configuration name="TestBaseapp_Defer in _5gAKA_UE/pkg/baseapp" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="5gAKA-UE" />
+      <working_directory value="$PROJECT_DIR$/pkg/baseapp" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="_5gAKA_UE/pkg/baseapp" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestBaseapp_Defer\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="baseapp_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="5gAKA-UE" />
+      <working_directory value="$PROJECT_DIR$/pkg/baseapp" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/pkg/baseapp/baseapp_test.go" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build sctp.go" />
-        <item itemvalue="Go Build.go build nts.go" />
-        <item itemvalue="Go Build.go build server.go (1)" />
+        <item itemvalue="Go Test.baseapp_test.go" />
+        <item itemvalue="Go Build.go build _5gAKA_UE" />
+        <item itemvalue="Go Test.TestBaseapp_Defer in _5gAKA_UE/pkg/baseapp" />
         <item itemvalue="Go Build.go build ue.go" />
-        <item itemvalue="Go Build.go build mockserver.go" />
+        <item itemvalue="Go Build.go build server.go (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -268,7 +273,10 @@
     <MESSAGE value="add gitignore" />
     <MESSAGE value="feat sctp operation" />
     <MESSAGE value="feat network task system" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat network task system" />
+    <MESSAGE value="feat extends cipher for 5GAKA" />
+    <MESSAGE value="refractor baseapp" />
+    <MESSAGE value="refractor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refractor" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
